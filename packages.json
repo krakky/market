@@ -81,6 +81,32 @@
                 "big data"
             ],
             "description": "CDH is Cloudera's 100% open source platform distribution, including Apache Hadoop and built specifically to meet enterprise demands. CDH delivers everything you need for enterprise use right out of the box. By integrating Hadoop with more than a dozen other critical open source projects, Cloudera has created a functionally advanced system that helps you perform end-to-end Big Data workflows."
+        },
+        {
+            "status": "supported",
+            "project_site": "http://rancher.com/docs/rancher/v1.6/en/quick-start-guide/",
+            "requirements": "https://github.com/krakky/market/tree/master/rancher_standalone#requirements",
+            "name": "Rancher Standalone",
+            "license": "https://github.com/krakky/market/blob/master/rancher_standalone/LICENSE",
+            "title": "Rancher | Latest | Standalone",
+            "bundle_icon": "https://raw.githubusercontent.com/krakky/market/master/rancher_standalone/img/logo.png",
+            "package_version": 1,
+            "author": "AdaptiveScale Inc.",
+            "published_ts": "2017-07-04T10:36:09Z",
+            "contact": "support@adaptivescale.com",
+            "repo": "https://github.com/krakky/market/tree/master/rancher_standalone",
+            "package_id": "rancher_standalone",
+            "version": 1.3,
+            "location": "https://github.com/krakky/market/raw/master/packages/rancher_standalone_v1.0.pkg",
+            "sha256": "6DA9A902E2D795751325BFDF46A6E7FCC8388D426913E595F7D3488C73DC3501",
+            "heading": "Rancher | Single Node",
+            "tags": [
+                "rancher",
+                "non-HA",
+                "single-node",
+                "standalone"
+            ],
+            "description": "Rancher is an open source software platform that enables organizations to run containers in production. With Rancher, organizations no longer have to build a container services platform from scratch using a distinct set of open source technologies. Rancher supplies the entire software stack needed to manage containers in production."
         }
     ]
 }

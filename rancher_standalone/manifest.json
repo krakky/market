@@ -1,0 +1,57 @@
+{
+    "Name": "Rancher | Single Node",
+    "Version": "stable | latest",
+    "Title": "Rancher | Single Node",
+    "Heading": "Rancher | Single Node",
+    "Description": "Only Ubuntu 14 (physcial & containers) fully tested & supported ! Go the IP of the actual node, to see <RANCHER> in action! The following credentials are valid with this package <acm : acm> !",
+    "Logo": "img/logo.png",
+    "Role": [
+        {
+            "Type": "RANCHER-Node",
+            "Name": "RANCHER-Node",
+            "Description": "RANCHER Single (non-HA) Node",
+            "Servers": {
+                "Min": 1,
+                "Max": 1
+            },
+            "Requirements": {
+                "Architecture": "x86_64",
+                "Cores": 2,
+                "Ram": 2,
+                "Storage": 2048
+            },
+            "Tasks" : [ 
+				{
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/{{ MAJOR }}/1_wget_curl_prequisite.sh",
+                    "tag" : "SYS-MODULE-PREQUISITE"
+                },
+				{
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/{{ MAJOR }}/2_docker_installation_instructions.sh",
+                    "tag" : "DOCKER-INSTALL-INSTRUCTIONS"
+                },
+                {
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/{{ MAJOR }}/3_docker_17_03_install.sh",
+                    "tag" : "START-DOCKER-INSTALLATION"
+                },
+                {
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/{{ MAJOR }}/4_rancher_latest_stable_pull.sh",
+                    "tag" : "RANCHER-LATEST-STABLE-PULL"
+                },
+                {
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/{{ MAJOR }}/5_instantiating_rancher.sh",
+                    "tag" : "START-RANCHER-STABLE"
+                },
+                {
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/{{ MAJOR }}/6_enable_local_auth.sh {{ SELF.IP }}",
+                    "tag" : "ENABLE-LOCAL-AUTH"
+                }
+            ]
+        }
+    ]
+}
