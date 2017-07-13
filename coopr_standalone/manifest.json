@@ -1,0 +1,72 @@
+{
+    "Name": "COOPR",
+    "Version": "0.9.9",
+    "Title": "COOPR",
+    "Heading": "COOPR",
+    "Description": "COOPR Deployment",
+    "Logo": "img/logo.png",
+    "Role": [
+        {
+            "Type": "COOPR",
+            "Name": "COOPR",
+            "Description": "COOPR Deployment Node",
+            "Servers": {
+                "Min": 1,
+                "Max": 1
+            },
+            "Requirements": {
+                "Architecture": "x86_64",
+                "Cores": 2,
+                "Ram": 4,
+                "Storage": 2048
+            },
+            "Tasks" : [ 
+				{
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/repo.sh",
+                    "tag" : "SETUP-REPO"
+                },
+				{
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/install-coopr.sh",
+                    "tag" : "INSTALL-COOPR"
+                },
+				{
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/install-jdk.sh",
+                    "tag" : "INSTALL-JAVA-1.7"
+                },
+                {
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/set_java_home.sh",
+                    "tag" : "SET-JAVA_HOME"
+                },
+				{
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/install-database.sh",
+                    "tag" : "INSTALL-MYSQL"
+                },
+                {
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/setup-database.sh",
+                    "tag" : "SETUP-COOPR-DB"
+                },
+                {
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/export-provisioner-variables.sh",
+                    "tag" : "COOPR-EXPORT-PROVISIONER-VARS"
+                }, 
+                {
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/export-ui-variables.sh",
+                    "tag" : "COOPR-EXPORT-UI-VARS"
+                },
+				{
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/initial-setup.sh",
+                    "tag" : "COOPR-INITIALIZE"
+                }
+            ]
+        }
+    ]
+}
