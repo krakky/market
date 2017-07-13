@@ -1,0 +1,53 @@
+{
+    "Name": "Cassandra | Single Node",
+    "Version": "3.6",
+    "Title": "Cassandra | Single Node",
+    "Heading": "Cassandra | Single Node",
+    "Description": "Only CentOS 6 & Ubuntu 14(containers) fully tested & supported ! <br/>Cassandra NoSQL Database with a single node (pseudo-cluster) storage technology ! To check whether the APP BUDNLE installation process went well you could use <cqlsh> in the commandline and connect to the database and query as explaiend in <http://cassandra.apache.org/doc/latest/getting_started/querying.html> !",
+    "Logo": "img/cassandra.png",
+    "Role": [
+        {
+            "Type": "CASS-Node",
+            "Name": "CASS-Node",
+            "Description": "Cassandra Single Node NoSQL DATABASE.",
+            "Servers": {
+                "Min": 1,
+                "Max": 1
+            },
+            "Requirements": {
+                "Architecture": "x86_64",
+                "Cores": 2,
+                "Ram": 4,
+                "Storage": 2048
+            },
+            "Tasks" : [ 
+				{
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/{{ MAJOR }}/sys_prepare.sh",
+                    "tag" : "SYS-ENV-REPO-PREPARE"
+                },
+				{
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/{{ MAJOR }}/install_java.sh",
+                    "tag" : "INSTALL-JAVA-18-OPENJDK"
+                },
+                {
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/{{ MAJOR }}/fixing_java_home.sh",
+                    "tag" : "JAVA-HOME-ENV-VARS"
+                },
+                {
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/{{ MAJOR }}/install_cassandra.sh",
+                    "tag" : "INSTALL-CASSANDRA"
+                },
+                {
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/{{ MAJOR }}/fix_start_cassandra.sh",
+                    "tag" : "FIX-N-START-CASSANDRA"
+                }
+
+            ]
+        }
+    ]
+}

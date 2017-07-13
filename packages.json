@@ -1,0 +1,30 @@
+{
+   "apps":[
+      {
+         "package_id":"YYh6r4",
+         "package_version":"0.3",
+         "name":"Spark 2.0",
+         "version":"2.0",
+         "project_site":"http://spark.apache.org/",
+         "title":"Spark 2.0 Standalone",
+         "heading":"Spark 2.0 Standalone",
+         "description":"Standalone version of Spark 2.0 for installation on a single node.",
+         "status":"beta",
+         "author":"AdaptiveScale Inc.",
+         "contact":"support@adaptivescale.com",
+         "license":"Apache",
+         "license_file":"http://market.adaptivescale.com/YYh6r4/license.txt",
+         "location":"http://market.adaptivescale.com/YYh6r4/spark_2.0_beta1.pkg",
+         "icon":"http://market.adaptivescale.com/YYh6r4/logo.png",
+         "requirements":"http://market.adaptivescale.com/YYh6r4/requirements",
+         "sha256":"0741fff7f51adbba8724b6bfeea46b675e1f8a22787f60293c33e9d505ed0dc5",
+         "repo":"http://github.com/adaptivescale/app_bundles/spark_2.0",
+         "tags":[
+            "spark",
+            "2.0",
+            "beta",
+            "standalone"
+         ]
+      }
+   ]
+}

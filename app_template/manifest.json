@@ -1,0 +1,47 @@
+{
+    "Name": "Sample | Single Node",
+    "Version": "stable | latest",
+    "Title": "myApp | Single Node",
+    "Heading": "Sample App | Single Node",
+    "Description": "This is a sample app skeleton for building your own app bundles.",
+    "Logo": "img/app_icon.png",
+    "Role": [
+        {
+            "Type": "Single-Node",
+            "Name": "Standalone",
+            "Description": "Single Node, standalone app",
+            "Servers": {
+                "Min": 1,
+                "Max": 1
+            },
+            "Requirements": {
+                "Architecture": "x86_64",
+                "Cores": 1,
+                "Ram": 1,
+                "Storage": 1024
+            },
+            "Tasks" : [
+				{
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/{{ MAJOR }}/0_update_package_manager.sh",
+                    "tag" : "SYS-MODULE-PACKAGES"
+                },
+				{
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/{{ MAJOR }}/1_install_prerequisites.sh",
+                    "tag" : "SYS-MODULE-PREQUISITE"
+                },
+                {
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/{{ MAJOR }}/2_install_myApp.sh",
+                    "tag" : "START-INSTALLATION"
+                },
+                {
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/common/3_check_service.sh",
+                    "tag" : "START-INSTALLATION"
+                }
+            ]
+        }
+    ]
+}
