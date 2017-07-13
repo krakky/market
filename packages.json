@@ -1,30 +1,59 @@
 {
-   "apps":[
-      {
-         "package_id":"YYh6r4",
-         "package_version":"0.3",
-         "name":"Spark 2.0",
-         "version":"2.0",
-         "project_site":"http://spark.apache.org/",
-         "title":"Spark 2.0 Standalone",
-         "heading":"Spark 2.0 Standalone",
-         "description":"Standalone version of Spark 2.0 for installation on a single node.",
-         "status":"beta",
-         "author":"AdaptiveScale Inc.",
-         "contact":"support@adaptivescale.com",
-         "license":"Apache",
-         "license_file":"http://market.adaptivescale.com/YYh6r4/license.txt",
-         "location":"http://market.adaptivescale.com/YYh6r4/spark_2.0_beta1.pkg",
-         "icon":"http://market.adaptivescale.com/YYh6r4/logo.png",
-         "requirements":"http://market.adaptivescale.com/YYh6r4/requirements",
-         "sha256":"0741fff7f51adbba8724b6bfeea46b675e1f8a22787f60293c33e9d505ed0dc5",
-         "repo":"http://github.com/adaptivescale/app_bundles/spark_2.0",
-         "tags":[
-            "spark",
-            "2.0",
-            "beta",
-            "standalone"
-         ]
-      }
-   ]
+    "apps": [
+        {
+            "status": "supported",
+            "project_site": "http://cassandra.apache.org",
+            "requirements": "https://github.com/krakky/market/tree/master/cassandra_single#requirements",
+            "name": "Cassandra Single Node",
+            "license": "https://github.com/krakky/market/blob/master/cassandra_single/LICENSE",
+            "title": "Cassandra | Single Node | latest",
+            "bundle_icon": "https://raw.githubusercontent.com/krakky/market/master/cassandra_single/img/cassandra.png",
+            "package_version": 1,
+            "author": "AdaptiveScale Inc.",
+            "published_ts": "2017-07-04T10:36:09Z",
+            "contact": "support@adaptivescale.com",
+            "repo": "https://github.com/krakky/market/tree/master/cassandra_single",
+            "package_id": "cassandra_single",
+            "version": 3.9,
+            "location": "https://github.com/krakky/market/raw/master/packages/cassandra_single_v1.0.pkg",
+            "sha256": "AC2AEAA1FFF39FC9C8A5F1E9DF146272B03EB906457A34910F6AEB241E87C8C4",
+            "heading": "Cassandra | Single Node",
+            "tags": [
+                "Cassandra",
+                "NoSQL",
+                "Cassy single node",
+                "persistent-storage",
+                "Cassandra no-fault-tolerance",
+                "non-HA"
+            ],
+            "description": "The Apache Cassandra database is the right choice when you need scalability and high availability without compromising performance. Linear scalability and proven fault-tolerance on commodity hardware or cloud infrastructure make it the perfect platform for mission-critical data.Cassandra's support for replicating across multiple datacenters is best-in-class, providing lower latency for your users and the peace of mind of knowing that you can survive regional outages. "
+        },
+        {
+            "status": "supported",
+            "project_site": "http://cassandra.apache.org",
+            "requirements": "https://github.com/krakky/market/tree/master/cassandra_cluster#requirements",
+            "name": "Cassandra Cluster",
+            "license": "https://github.com/krakky/market/blob/master/cassandra_cluster/LICENSE",
+            "title": "Cassandra | Latest | Cluster",
+            "bundle_icon": "https://raw.githubusercontent.com/krakky/market/master/cassandra_cluster/img/cassandra.png",
+            "package_version": 1,
+            "author": "AdaptiveScale Inc.",
+            "published_ts": "2017-07-04T10:36:09Z",
+            "contact": "support@adaptivescale.com",
+            "repo": "https://github.com/krakky/market/tree/master/cassandra_cluster",
+            "package_id": "cassandra_cluster",
+            "version": 3.9,
+            "location": "https://github.com/krakky/market/raw/master/packages/cassandra_cluster_v1.0.pkg",
+            "sha256": "9FD3CE3DA546789E88B4A38865C530E9E774682DCBC349624D3E6FE6AD9F4AD0",
+            "heading": "Cassandra | Cluster",
+            "tags": [
+                "Cassandra",
+                "NoSQL",
+                "Cassy Cluster",
+                "persistent-storage",
+                "Cassandra Datacenter"
+            ],
+            "description": "The Apache Cassandra database is the right choice when you need scalability and high availability without compromising performance. Linear scalability and proven fault-tolerance on commodity hardware or cloud infrastructure make it the perfect platform for mission-critical data.Cassandra's support for replicating across multiple datacenters is best-in-class, providing lower latency for your users and the peace of mind of knowing that you can survive regional outages. "
+        }
+    ]
 }
