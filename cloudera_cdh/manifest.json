@@ -1,0 +1,94 @@
+{
+    "Name": "Cloudera CDH",
+    "Version": "5.10",
+    "Title": "Cloudera CDH",
+    "Heading": "Cloudera CDH",
+    "Description": "This is an app bundle for Cloudera CDH v5.10",
+    "Logo": "img/logo.png",
+    "Role": [
+        {
+            "Type": "Server",
+            "Name": "Cloudera CDH Server Node",
+            "Description": "Cloudera CDH Server Node",
+            "Servers": {
+                "Min": 1,
+                "Max": 1
+            },
+            "Requirements": {
+                "Architecture": "x86_64",
+                "Cores": 1,
+                "Ram": 128,
+                "Storage": 2048
+            },
+            "Tasks" : [ 
+                {
+                    "module_name" : "copy",
+                    "module_args" : "src={{ SELF }}/conf/{{ DISTRIBUTION }}6/cloudera-manager.repo dest=/etc/yum.repos.d",
+                    "tag" : "Repo"
+                }, 
+                {
+                    "module_name" : "copy",
+                    "module_args" : "src={{ HOSTS }} dest=/etc/hosts",
+                    "tag" : "Hosts"
+                }, 
+                {
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}6/cloudera-install-jdk.sh",
+                    "tag" : "JDK"
+                }, 
+                {
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}6/install-manager-db.sh",
+                    "tag" : "DB"
+                }, 
+                {
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}6/install-manager-daemons-server.sh",
+                    "tag" : "Daemons-Server"
+                },
+                {
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}6/install-manager-daemons-agent.sh {{ Server.IP }}",
+                    "tag" : "Daemons-Agent"
+                }
+            ]
+        },
+        {
+            "Type": "Agent",
+            "Name": "Cloudera CDH Agent Node",
+            "Description": "Cloudera CDH Agent Node",
+            "Servers": {
+                "Min": 1,
+                "Max": 2
+            },
+            "Requirements": {
+                "Architecture": "x86_64",
+                "Cores": 1,
+                "Ram": 128,
+                "Storage": 4096
+            },
+            "Tasks" : [ 
+                {
+                    "module_name" : "copy",
+                    "module_args" : "src={{ SELF }}/conf/{{ DISTRIBUTION }}6/cloudera-manager.repo dest=/etc/yum.repos.d",
+                    "tag" : "Repo"
+                }, 
+                {
+                    "module_name" : "copy",
+                    "module_args" : "src={{ HOSTS }} dest=/etc/hosts",
+                    "tag" : "Hosts"
+                }, 
+                {
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}6/cloudera-install-jdk.sh",
+                    "tag" : "JDK"
+                },
+                {
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}6/install-manager-daemons-agent.sh {{ Server.IP }}",
+                    "tag" : "Daemons-Agent"
+                }
+            ]
+        }
+    ]
+}
