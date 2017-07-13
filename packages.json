@@ -134,6 +134,35 @@
                 "automation"
             ],
             "description": "Coopr is used internally as a self-service cluster provisioner for our developers, as a CI tool for integration testing, and as a DevOps tool to test new and incremental features. We've been developing and using Coopr for over a year, and we're noticing the benefits: our developer and DevOps productivity have doubled, and our development and test cycles have become faster."
+        },
+        {
+            "status": "supported",
+            "project_site": "https://docs.mongodb.com/manual/tutorial/deploy-replica-set/",
+            "requirements": "https://github.com/krakky/market/tree/master/mongodb_replica#requirements",
+            "name": "MongoDB Replica Set",
+            "license": "https://github.com/krakky/market/blob/master/mongodb_replica/LICENSE",
+            "title": "MongoDB | Replica Set | 3.4",
+            "bundle_icon": "https://raw.githubusercontent.com/krakky/market/master/mongodb_replica/img/logo.png",
+            "package_version": 1,
+            "author": "AdaptiveScale Inc.",
+            "published_ts": "2017-07-04T10:36:09Z",
+            "contact": "support@adaptivescale.com",
+            "repo": "https://github.com/krakky/market/tree/master/mongodb_replica",
+            "package_id": "mongodb_replica",
+            "version": 3.4,
+            "location": "https://github.com/krakky/market/raw/master/packages/mongodb_replica_v1.0.pkg",
+            "sha256": "3551098864BC7CA9298024B7F19D65032C89DA1C466BAEA63ABA44AC2BADFD70",
+            "heading": "MongoDB | Replica Set | 3.4",
+            "tags": [
+                "MongoDB",
+                "NoSQL",
+                "database",
+                "persistent storage",
+                "mongo",
+                "Replica Set",
+                "mongo replication"
+            ],
+            "description": "MongoDB (from humongous) is a free and open-source cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with schemas. MongoDB is developed by MongoDB Inc. and is free and open-source, published under a combination of the GNU Affero General Public License and the Apache License."
         }
     ]
 }

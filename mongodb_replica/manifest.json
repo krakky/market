@@ -1,0 +1,116 @@
+{
+    "Name": "MongoDB Replica Set",
+    "Version": "3.4",
+    "Title": "MongoDB Replica Set",
+    "Heading": "MongoDB Replica Set",
+    "Description": "MongoDB Replica Set v3.4. Supported Operating Systems: CentOS6, CentOS7...",
+    "Logo": "img/logo.png",
+    "Role": [
+        {
+            "Type": "Master Node",
+            "Name": "Replica Set Master Node",
+            "Description": "This is a MongoDB Replica Set Master Node",
+            "Servers": {
+                "Min": 1,
+                "Max": 1
+            },
+            "Requirements": {
+                "Architecture": "x86_64",
+                "Cores": 1,
+                "Ram": 128,
+                "Storage": 2048
+            },
+            "Tasks" : [ 
+                {
+                    "module_name" : "copy",
+                    "module_args" : "src={{ SELF }}/conf/{{ DISTRIBUTION }}/mongodb-org-3.4.repo dest=/etc/yum.repos.d",
+                    "tag" : "Repo"
+                },
+				{
+					"module_name": "copy",
+					"module_args": "src={{ HOSTS }} dest=/etc/hosts",
+					"tag": "Hosts"
+				},
+                {
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/mongo-install.sh",
+                    "tag" : "Mongo-Install"
+                }, 
+                {
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/mongo-stop.sh",
+                    "tag" : "Mongo-Stop"
+                }, 
+                {
+                    "module_name" : "copy",
+                    "module_args" : "src={{ SELF }}/conf/mongod.conf dest=/etc/mongod.conf",
+                    "tag" : "Mongo-Config"
+                }, 
+                {
+                    "module_name" : "command",
+                    "module_args" : "mongod --config /etc/mongod.conf",
+                    "tag" : "Mongo-Start"
+                }, 
+                {
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/mongo-replica.sh {{ [Slave Node.FQDN] }}",
+                    "tag" : "Mongo-Replica",
+                    "dependencies": [
+                        {
+                            "role": "Slave Node",
+                            "step": 5,
+                            "tag": "Mongo-Start"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "Type": "Slave Node",
+            "Name": "Replica Set Slave Node",
+            "Description": "This is a MongoDB Replica Set Slave Node",
+            "Servers": {
+                "Min": 1,
+                "Max": 2
+            },
+            "Requirements": {
+                "Architecture": "x86_64",
+                "Cores": 1,
+                "Ram": 128,
+                "Storage": 4096
+            },
+            "Tasks" : [ 
+                {
+                    "module_name" : "copy",
+                    "module_args" : "src={{ SELF }}/conf/{{ DISTRIBUTION }}/mongodb-org-3.4.repo dest=/etc/yum.repos.d",
+                    "tag" : "Repo"
+                },
+				{
+					"module_name": "copy",
+					"module_args": "src={{ HOSTS }} dest=/etc/hosts",
+					"tag": "Hosts"
+				},
+                {
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/mongo-install.sh",
+                    "tag" : "Mongo-Install"
+                }, 
+                {
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/mongo-stop.sh",
+                    "tag" : "Mongo-Stop"
+                }, 
+                {
+                    "module_name" : "copy",
+                    "module_args" : "src={{ SELF }}/conf/mongod.conf dest=/etc/mongod.conf",
+                    "tag" : "Mongo-Config"
+                }, 
+                {
+                    "module_name" : "command",
+                    "module_args" : "mongod --config /etc/mongod.conf",
+                    "tag" : "Mongo-Start"
+                }
+            ]
+        }
+    ]
+}
