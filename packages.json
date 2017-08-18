@@ -195,6 +195,35 @@
                 "high availability"
             ],
             "description": "Minio is an object storage server released under Apache License v2.0. It is compatible with Amazon S3 cloud storage service. It is best suited for storing unstructured data such as photos, videos, log files, backups and container / VM images. Size of an object can range from a few KBs to a maximum of 5TB."
+        },
+        {
+            "status": "supported",
+            "project_site": "https://redis.io/documentation",
+            "requirements": "https://github.com/krakky/market/tree/master/redis_replica#requirements",
+            "name": "Redis Replica Set",
+            "license": "https://github.com/krakky/market/blob/master/redis_replica/LICENSE",
+            "title": "Redis | Replica Set | 2.3+",
+            "bundle_icon": "https://raw.githubusercontent.com/krakky/market/master/redis_replica/img/logo.png",
+            "package_version": 1,
+            "author": "AdaptiveScale Inc.",
+            "published_ts": "2017-07-04T10:36:09Z",
+            "contact": "support@adaptivescale.com",
+            "repo": "https://github.com/krakky/market/tree/master/redis_replica",
+            "package_id": "redis_replica",
+            "version": 2.3,
+            "location": "https://github.com/krakky/market/raw/master/packages/redis_replica_v1.0.pkg",
+            "sha256": "0E40D2D853CFC2431ED48B1F84F3609979F65F55D116A32D48AF43E3B7F91E01",
+            "heading": "Redis | Replica Set | 2.3+",
+            "tags": [
+                "redis",
+                "in-memory",
+                "memory storage",
+                "cache",
+                "message broker",
+                "database",
+                "mem store"
+            ],
+            "description": "Redis is an open source (BSD licensed), in-memory data structure store, used as a database, cache and message broker. It supports data structures such as strings, hashes, lists, sets, sorted sets with range queries, bitmaps, hyperloglogs and geospatial indexes with radius queries. Redis has built-in replication, Lua scripting, LRU eviction, transactions and different levels of on-disk persistence, and provides high availability via Redis Sentinel and automatic partitioning with Redis Cluster."
         }
     ]
 }

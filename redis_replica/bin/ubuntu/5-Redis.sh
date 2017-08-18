@@ -1,0 +1,1 @@
+sudo sed -i "s/appendfilename .*/appendfilename redis-staging-ao.aof/g" /etc/redis/redis.conf

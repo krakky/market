@@ -1,0 +1,122 @@
+{
+    "Name": "Redis Replica Set",
+    "Version": "3.2+",
+    "Title": "Redis Replica Set",
+    "Heading": "Redis Replica Set",
+    "Description": "Redis Replica Set consisting of single master node and multiple slave nodes with security disabled",
+    "Logo": "img/logo.png",
+    "Tags":["Redis", "Replica Set", "Replica"],
+    "Role": [
+        {
+            "Type": "Master Node",
+            "Name": "Replica Set Master Node",
+            "Description": "This is a Redis Replica Set Master Node",
+            "Servers": {
+                "Min": 1,
+                "Max": 1
+            },
+            "Requirements": {
+                "Architecture": "x86_64",
+                "Cores": 1,
+                "Ram": 128,
+                "Storage": 2048
+            },
+            "Tasks" : [
+                {
+                   "module_name" : "command",
+                   "module_args" : "echo \"Installing Redis\"",
+                   "tag" : "Info"
+                },
+                {
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/1-Redis.sh",
+                    "tag" : "Repo-Update"
+                },
+                {
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/2-Redis.sh",
+                    "tag" : "Install-Redis"
+                },
+                {
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/3-Redis.sh",
+                    "tag" : "Redis-BindIP"
+                },
+                {
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/4-Redis.sh",
+                    "tag" : "Redis-AppendOnly"
+                },
+                {
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/5-Redis.sh",
+                    "tag" : "Redis-AppendFile"
+                },
+                {
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/6-Redis.sh",
+                    "tag" : "Redis-Restart"
+                },
+                {
+                    "module_name" : "command",
+                    "module_args" : "echo \"Redis installation complete\"",
+                    "tag" : "Redis-Installed"
+                }
+            ]
+        },
+        {
+            "Type": "Slave Node",
+            "Name": "Replica Set Slave Node",
+            "Description": "This is a Redis Replica Set Slave Node",
+            "Servers": {
+                "Min": 1,
+                "Max": 5
+            },
+            "Requirements": {
+                "Architecture": "x86_64",
+                "Cores": 1,
+                "Ram": 128,
+                "Storage": 4096
+            },
+            "Tasks" : [
+                {
+                   "module_name" : "command",
+                   "module_args" : "echo \"Installing Redis\"",
+                   "tag" : "Info"
+                },
+                 {
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/1-Redis.sh",
+                    "tag" : "Repo-Update"
+                },
+                {
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/2-Redis.sh",
+                    "tag" : "Install-Redis"
+                },
+                {
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/3-Redis.sh",
+                    "tag" : "Redis-BindIP"
+                },
+                {
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/7-Redis.sh {{ Master Node.IP }}",
+                    "tag" : "Redis-SlaveOnly"
+                },
+                {
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/6-Redis.sh",
+                    "tag" : "Redis-Restart",
+                    "dependencies": [
+                       {
+                           "role": "Master Node",
+                           "step": 7,
+                           "tag": "Redis-Start"
+                       }
+                   ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,1 @@
+sudo sed -i "s/appendonly .*/appendonly yes/g" /etc/redis.conf
