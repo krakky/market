@@ -1,0 +1,53 @@
+{
+    "Name": "Minio | Cluster(4x Nodes)",
+    "Version": "R. 2017-07-24",
+    "Title": "Minio | Cluster (RELEASE 2017-07-24)",
+    "Heading": "Minio | Distributed Object Storage",
+    "Description": "SUPPORTED & FULLY TESTED: Ubuntu-14(trusty) physical, vmware & lxc container !",
+    "Logo": "img/logo.png",
+    "Role": [
+        {
+            "Type": "MINIO_NODE",
+            "Name": "Minio Cluster Node",
+            "Description": "Casual Cluster Node to be added !",
+            "Servers": {
+                "Min": 4,
+                "Max": 4
+            },
+            "Requirements": {
+                "Architecture": "x86_64",
+                "Cores": 2,
+                "Ram": 1,
+                "Storage": 2048
+            },
+            "Tasks" : [
+                 {
+                    "module_name" : "copy",
+                    "module_args" : "src={{ SELF }}/conf/minio_base_config.json dest=/tmp/minio_base_config.json",
+                    "tag" : "COPY-BASE-MINIO-CONFIG"
+                },
+                {
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/{{ MAJOR }}/0_install_minio.sh",
+                    "tag" : "INSTALL-MINIO-BIN"
+                }
+                ,
+                {
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/{{ MAJOR }}/1_configure_sync_ntp.sh",
+                    "tag" : "NTP-CONFIGURE-SYNC-CLOCK"
+                },
+                {
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/{{ MAJOR }}/2_minio_preconfigure.sh",
+                    "tag" : "PRECONFIGURE-MINIO"
+                },
+                {
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/{{ MAJOR }}/3_setup_supervisor_and_start.sh {{ [MINIO_NODE.IP] }}",
+                    "tag" : "SPIN-UP-MINIO-SERVER-VIA-SUPERVISOR"
+                }
+            ]
+        }
+    ]
+}
