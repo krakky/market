@@ -178,7 +178,7 @@
             "contact": "support@adaptivescale.com",
             "repo": "https://github.com/krakky/market/tree/master/minio_cluster_4x",
             "package_id": "minio_cluster_4x",
-            "version": 3.4,
+            "version": 1.0,
             "location": "https://github.com/krakky/market/raw/master/packages/minio_cluster_4x_v1.0.pkg",
             "sha256": "23626B998185ABA8658D4FAE40C42BCBCFC1F4985D7332A747F39B1676BE19CA",
             "heading": "Distributed Cluster (4x Nodes) | R.2017-07-24",
