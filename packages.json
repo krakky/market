@@ -242,7 +242,7 @@
             "published_ts": "2017-07-04T10:36:09Z",
             "contact": "support@adaptivescale.com",
             "repo": "https://github.com/krakky/market/tree/master/redis_cluster",
-            "package_id": "redis_replica",
+            "package_id": "redis_cluster",
             "version": 3.2,
             "location": "https://github.com/krakky/market/raw/master/packages/redis_cluster_v1.0.pkg",
             "sha256": "7B174A97552E98DD459F5F4A76CB331A64D767971D0561E635E69F7C9C71A40E",
