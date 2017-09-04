@@ -1,0 +1,173 @@
+{
+    "Name": "Spark Cluster + Minio",
+    "Version": "Spark 2.2+ Minio R. 2017-07-24",
+    "Title": "Spark Cluster + Minio",
+    "Heading": "Spark Cluster",
+    "Description": "Spark Cluster consisting of 1 master and nodes with security disabled, Minio consists of 4 nodes minimum. Currently supported OS: Ubuntu 14, 16 and CentOS 6,7",
+    "Logo": "img/logo.png",
+    "Tags":["spark", "cluster", "spark-cluster", "minio-cluster","minio", "spark minio", "distributed processing", "distributed data"],
+    "Role": [
+        {
+            "Type": "Master Node",
+            "Name": "Spark Cluster Master Node",
+            "Description": "This is the Spark Cluster Master Node.",
+            "Servers": {
+                "Min": 1,
+                "Max": 1
+            },
+            "Requirements": {
+                "Architecture": "x86_64",
+                "Cores": 1,
+                "Ram": 128,
+                "Storage": 2048
+            },
+            "Tasks" : [
+                {
+                   "module_name" : "command",
+                   "module_args" : "echo \"Installing Spark\"",
+                   "tag" : "Info"
+                },
+                {
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/1-Spark.sh",
+                    "tag" : "Repo-Update"
+                },
+                {
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/2-Spark.sh",
+                    "tag" : "Install-OpenJDK"
+                },
+                {
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/3-Spark.sh",
+                    "tag" : "Download-Spark"
+                },
+                {
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/4-Spark.sh",
+                    "tag" : "Extract-Spark"
+                },
+                {
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/5-Spark.sh",
+                    "tag" : "SetHost-AsIP"
+                },
+                {
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/6-Spark.sh",
+                    "tag" : "Start-Spark"
+                },
+                {
+                    "module_name" : "command",
+                    "module_args" : "echo \"Spark installation complete\"",
+                    "tag" : "Redis-Installed"
+                },
+                 {
+                    "module_name" : "copy",
+                    "module_args" : "src={{ SELF }}/conf/minio_base_config.json dest=/tmp/minio_base_config.json",
+                    "tag" : "COPY-BASE-MINIO-CONFIG"
+                },
+                {
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/{{ MAJOR }}/0_install_minio.sh",
+                    "tag" : "INSTALL-MINIO-BIN"
+                },
+                {
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/{{ MAJOR }}/1_configure_sync_ntp.sh",
+                    "tag" : "NTP-CONFIGURE-SYNC-CLOCK"
+                },
+                {
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/{{ MAJOR }}/2_minio_preconfigure.sh",
+                    "tag" : "PRECONFIGURE-MINIO"
+                },
+                {
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/{{ MAJOR }}/3_setup_supervisor_and_start.sh {{ [Master Node.IP] }} {{ [Slave Node.IP] }}",
+                    "tag" : "SPIN-UP-MINIO-SERVER-VIA-SUPERVISOR"
+                }
+            ]
+        },
+        {
+            "Type": "Slave Node",
+            "Name": "Spark Cluster Slave Node",
+            "Description": "This is a Spark Cluster Slave Node",
+            "Servers": {
+                "Min": 3,
+                "Max": 5
+            },
+            "Requirements": {
+                "Architecture": "x86_64",
+                "Cores": 1,
+                "Ram": 128,
+                "Storage": 4096
+            },
+            "Tasks" : [
+                {
+                   "module_name" : "command",
+                   "module_args" : "echo \"Installing Spark\"",
+                   "tag" : "Info"
+                },
+                 {
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/1-Spark.sh",
+                    "tag" : "Repo-Update"
+                },
+                {
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/2-Spark.sh",
+                    "tag" : "Install-OpenJDK"
+                },
+                {
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/3-Spark.sh",
+                    "tag" : "Download-Spark"
+                },
+                {
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/4-Spark.sh",
+                    "tag" : "Extract-Spark"
+                },
+                {
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/7-Spark.sh {{ Master Node.IP }}",
+                    "tag" : "Start-Spark",
+                    "dependencies": [
+                       {
+                           "role": "Master Node",
+                           "step": 6,
+                           "tag": "Spark-Start"
+                       }
+                   ]
+                },
+                 {
+                    "module_name" : "copy",
+                    "module_args" : "src={{ SELF }}/conf/minio_base_config.json dest=/tmp/minio_base_config.json",
+                    "tag" : "COPY-BASE-MINIO-CONFIG"
+                },
+                {
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/{{ MAJOR }}/0_install_minio.sh",
+                    "tag" : "INSTALL-MINIO-BIN"
+                }
+                ,
+                {
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/{{ MAJOR }}/1_configure_sync_ntp.sh",
+                    "tag" : "NTP-CONFIGURE-SYNC-CLOCK"
+                },
+                {
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/{{ MAJOR }}/2_minio_preconfigure.sh",
+                    "tag" : "PRECONFIGURE-MINIO"
+                },
+                {
+                    "module_name" : "script",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/{{ MAJOR }}/3_setup_supervisor_and_start.sh {{ [Master Node.IP] }} {{ [Slave Node.IP] }}",
+                    "tag" : "SPIN-UP-MINIO-SERVER-VIA-SUPERVISOR"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,1 @@
+cd spark && ./sbin/start-slave.sh "spark://$1:7077"
