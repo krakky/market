@@ -1,8 +1,8 @@
 # Coopr Standalone | v 1.0
-Coopr is used internally as a self-service cluster provisioner for our developers, as a CI tool for integration testing, and as a DevOps tool to test new and incremental features. We’ve been developing and using Coopr for over a year, and we’re noticing the benefits: our developer and DevOps productivity have doubled, and our development and test cycles have become faster.
+Coopr is used internally as a self-service cluster provisioner for CASK developers, as a CI tool for integration testing, and as a DevOps tool to test new and incremental features. We’ve been developing and using COOPR for over a year, and we’re noticing the benefits: our developer and DevOps productivity have doubled, and our development and test cycles have become faster.
 
 # SHA256 | (.pkg) integrity check
-**9870CC5B123920C6893154EB5550EA7E3340B2A1DBA25A8C29B326C99F7C0C97**
+**E259E6D22B4D3193BF324F61BC830ECD065BAB089B02C3001DEAA2BB25367F48**
 
 # License | Apache License 2.0
 Refer to the [LICENSE](https://github.com/krakky/market/blob/master/coopr_standalone/LICENSE) file for more info !
@@ -17,5 +17,6 @@ Refer to the [LICENSE](https://github.com/krakky/market/blob/master/coopr_standa
 - amd64 processor
 
 # Supported OS:
-- CentOS 6.4
-- Ubuntu 12.04
+- CentOS 6.x (3GB of RAM)
+- CentOS 7.x (3GB of RAM)
+- Ubuntu 14.x (3GB of RAM)

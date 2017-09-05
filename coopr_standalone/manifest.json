@@ -3,8 +3,17 @@
     "Version": "0.9.9",
     "Title": "COOPR",
     "Heading": "COOPR",
-    "Description": "COOPR Deployment",
+    "Description": "COOPR Web-Application <Server, Provisioner & UI> (with an external MySQL database configured and the embeedded zookeeper quorum). After installation, browse over http://<YOUR_IP>:<8100> and use authentication credentials <superadmin:superadmin> identified with <superadmin> as TENANT. <CentOS-6>, <CentOS-7> + <Ubuntu-14> fully tested and supported ! A recommended amount of 3GB of RAM, on the environment you want to install it !",
     "Logo": "img/logo.png",
+    "tags": [
+        "COOPR",
+        "coopr",
+        "cluster provisioner",
+        "cask",
+        "DevOps",
+        "automation",
+        "automatic deployment"
+    ],
     "Role": [
         {
             "Type": "COOPR",
@@ -16,54 +25,49 @@
             },
             "Requirements": {
                 "Architecture": "x86_64",
-                "Cores": 2,
-                "Ram": 4,
-                "Storage": 2048
+                "Cores": 1,
+                "Ram": 3,
+                "Storage": 50
             },
             "Tasks" : [ 
 				{
                     "module_name" : "script",
-                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/repo.sh",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/0_repo.sh",
                     "tag" : "SETUP-REPO"
                 },
 				{
                     "module_name" : "script",
-                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/install-coopr.sh",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/1_install-coopr.sh",
                     "tag" : "INSTALL-COOPR"
                 },
 				{
                     "module_name" : "script",
-                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/install-jdk.sh",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/2_install-jdk.sh",
                     "tag" : "INSTALL-JAVA-1.7"
                 },
                 {
                     "module_name" : "script",
-                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/set_java_home.sh",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/3_set_java_home.sh",
                     "tag" : "SET-JAVA_HOME"
                 },
 				{
                     "module_name" : "script",
-                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/install-database.sh",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/4_install-database.sh",
                     "tag" : "INSTALL-MYSQL"
                 },
                 {
                     "module_name" : "script",
-                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/setup-database.sh",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/5_setup-database.sh",
                     "tag" : "SETUP-COOPR-DB"
                 },
                 {
                     "module_name" : "script",
-                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/export-provisioner-variables.sh",
-                    "tag" : "COOPR-EXPORT-PROVISIONER-VARS"
-                }, 
-                {
-                    "module_name" : "script",
-                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/export-ui-variables.sh",
-                    "tag" : "COOPR-EXPORT-UI-VARS"
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/6_configure_default_xml.sh",
+                    "tag" : "COOPR-CONFIGURE-DEFAULT-XML"
                 },
 				{
                     "module_name" : "script",
-                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/initial-setup.sh",
+                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/7_initial-setup.sh",
                     "tag" : "COOPR-INITIALIZE"
                 }
             ]

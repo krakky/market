@@ -114,7 +114,7 @@
             "requirements": "https://github.com/krakky/market/tree/master/coopr_standalone#requirements",
             "name": "COOPR standalone",
             "license": "https://github.com/krakky/market/blob/master/coopr_standalone/LICENSE",
-            "title": "COOPR | Latest",
+            "title": "COOPR | 0.9.9",
             "bundle_icon": "https://raw.githubusercontent.com/krakky/market/master/coopr_standalone/img/logo.png",
             "package_version": 1,
             "author": "AdaptiveScale Inc.",
@@ -122,18 +122,20 @@
             "contact": "support@adaptivescale.com",
             "repo": "https://github.com/krakky/market/tree/master/coopr_standalone",
             "package_id": "coopr_standalone",
-            "version": 1,
+            "version": 0.9,
             "location": "https://github.com/krakky/market/raw/master/packages/coopr_standalone_v1.0.pkg",
-            "sha256": "9870CC5B123920C6893154EB5550EA7E3340B2A1DBA25A8C29B326C99F7C0C97",
-            "heading": "COOPR | Latest",
+            "sha256": "E259E6D22B4D3193BF324F61BC830ECD065BAB089B02C3001DEAA2BB25367F48",
+            "heading": "COOPR | 0.9.9",
             "tags": [
                 "COOPR",
+                "coopr",
                 "cluster provisioner",
-                "Cask",
+                "cask",
                 "DevOps",
-                "automation"
+                "automation",
+                "automatic deployment"
             ],
-            "description": "Coopr is used internally as a self-service cluster provisioner for our developers, as a CI tool for integration testing, and as a DevOps tool to test new and incremental features. We've been developing and using Coopr for over a year, and we're noticing the benefits: our developer and DevOps productivity have doubled, and our development and test cycles have become faster."
+            "description": "Coopr is used internally as a self-service cluster provisioner for CASK developers, as a CI tool for integration testing, and as a DevOps tool to test new and incremental features. We've been developing and using Coopr for over a year, and we're noticing the benefits: our developer and DevOps productivity have doubled, and our development and test cycles have become faster."
         },
         {
             "status": "supported",
