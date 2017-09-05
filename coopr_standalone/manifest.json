@@ -5,7 +5,7 @@
     "Heading": "COOPR",
     "Description": "COOPR Web-Application <Server, Provisioner & UI> (with an external MySQL database configured and the embeedded zookeeper quorum). After installation, browse over http://<YOUR_IP>:<8100> and use authentication credentials <superadmin:superadmin> identified with <superadmin> as TENANT. <CentOS-6>, <CentOS-7> + <Ubuntu-14> fully tested and supported ! A recommended amount of 3GB of RAM, on the environment you want to install it !",
     "Logo": "img/logo.png",
-    "tags": [
+    "Tags": [
         "COOPR",
         "coopr",
         "cluster provisioner",
