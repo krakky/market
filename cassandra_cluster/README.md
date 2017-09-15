@@ -4,7 +4,7 @@ The Apache Cassandra database is the right choice when you need scalability and 
 *the cluster on ubuntu sometimes fails to be started as a single replication group. User has to manually restart the services !*
 
 # SHA256 | (.pkg) integrity check
-**1E9696190B156814FC898204C184F0039515C950AF731C788997C5ED17DDD356**
+**8BAB3AD0F8071EADA71D271DC615111990318ECC7D6BDDF893FC9E3F35B1D376**
 
 # License | Apache License 2.0
 Refer to the [LICENSE](https://github.com/krakky/market/blob/master/cassandra_cluster/LICENSE) file for more info !

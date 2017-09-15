@@ -45,7 +45,7 @@
             "package_id": "cassandra_cluster",
             "version": 3.6,
             "location": "https://github.com/krakky/market/raw/master/packages/cassandra_cluster_v1.1.pkg",
-            "sha256": "1E9696190B156814FC898204C184F0039515C950AF731C788997C5ED17DDD356",
+            "sha256": "8BAB3AD0F8071EADA71D271DC615111990318ECC7D6BDDF893FC9E3F35B1D376",
             "heading": "Cassandra | Cluster",
             "tags": [
                 "Cassandra",
