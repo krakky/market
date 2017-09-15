@@ -11,3 +11,14 @@ Refer to the [LICENSE](https://github.com/krakky/market/blob/master/cassandra_si
 - 1 GB RAM
 - 10 GB storage 
 - amd64 processor
+
+# Requirements
+- 1 GB RAM
+- 10 GB storage 
+- amd64 processor
+
+# Supported OS:
+- CentOS 6 [Cassandra 3.0]
+- CentOS 7 [Cassandra 3.0]
+- Ubuntu 14 [Cassandra 3.6]
+- Ubuntu 16 [Cassandra 3.11]
