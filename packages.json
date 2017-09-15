@@ -37,24 +37,26 @@
             "license": "https://github.com/krakky/market/blob/master/cassandra_cluster/LICENSE",
             "title": "Cassandra | Latest | Cluster",
             "bundle_icon": "https://raw.githubusercontent.com/krakky/market/master/cassandra_cluster/img/cassandra.png",
-            "package_version": 1,
+            "package_version": 1.1,
             "author": "AdaptiveScale Inc.",
             "published_ts": "2017-07-04T10:36:09Z",
             "contact": "support@adaptivescale.com",
             "repo": "https://github.com/krakky/market/tree/master/cassandra_cluster",
             "package_id": "cassandra_cluster",
-            "version": 3.9,
-            "location": "https://github.com/krakky/market/raw/master/packages/cassandra_cluster_v1.0.pkg",
-            "sha256": "9FD3CE3DA546789E88B4A38865C530E9E774682DCBC349624D3E6FE6AD9F4AD0",
+            "version": 3.6,
+            "location": "https://github.com/krakky/market/raw/master/packages/cassandra_cluster_v1.1.pkg",
+            "sha256": "1E9696190B156814FC898204C184F0039515C950AF731C788997C5ED17DDD356",
             "heading": "Cassandra | Cluster",
             "tags": [
                 "Cassandra",
                 "NoSQL",
-                "Cassy Cluster",
+                "cassy cluster",
                 "persistent-storage",
-                "Cassandra Datacenter"
+                "cassandra datacenter",
+                "cassy distributed",
+                "distributed"
             ],
-            "description": "The Apache Cassandra database is the right choice when you need scalability and high availability without compromising performance. Linear scalability and proven fault-tolerance on commodity hardware or cloud infrastructure make it the perfect platform for mission-critical data.Cassandra's support for replicating across multiple datacenters is best-in-class, providing lower latency for your users and the peace of mind of knowing that you can survive regional outages. Supported OS: CentOS 6 (LXC only), Ubuntu 14 (LXC Only) "
+            "description": "The Apache Cassandra database is the right choice when you need scalability and high availability without compromising performance. Linear scalability and proven fault-tolerance on commodity hardware or cloud infrastructure make it the perfect platform for mission-critical data.Cassandra's support for replicating across multiple datacenters is best-in-class, providing lower latency for your users and the peace of mind of knowing that you can survive regional outages. Supported OS: CentOS 6 [Cassandra 3.0], Ubuntu 14 [Cassandra 3.6] & Ubuntu 16 [Cassandra 3.11] !"
         },
         {
             "status": "supported",

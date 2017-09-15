@@ -1,10 +1,19 @@
 {
-    "Name": "Cassandra | Cluster (v0.2)",
+    "Name": "Cassandra | Cluster",
     "Version": "3.6",
-    "Title": "Cassandra | Cluster (v0.2)",
-    "Heading": "Cassandra | Cluster (v0.2)",
-    "Description": "SUPPORTED: Ubuntu-14(container) & Centos-6(container) [TESTED] .Cassandra NoSQL Cluster with up to 3 SEEDs ! To check whether cluster has successfully been deployed run <sudo nodetool status> on any of your specified nodes ! ...",
+    "Title": "Cassandra | Cluster",
+    "Heading": "Cassandra | Cluster",
+    "Description": "*SUPPORTED OS:* CentOS 6 => [Cassandra 3.0], Ubuntu 14(trusty) => [Cassandra 3.6], Ubuntu 16(xenial) => [Cassandra 3.11] | Cassandra Distributed Cluster with up to 3 SEED's ! To check whether cluster has been successfully deployed run <sudo nodetool status> on any of the cluster nodes !",
     "Logo": "img/cassandra.png",
+    "Tags": [
+        "Cassandra",
+        "NoSQL",
+        "cassy cluster",
+        "persistent-storage",
+        "cassandra datacenter",
+        "cassy distributed",
+        "distributed"
+    ],
     "Role": [
         {
             "Type": "CASS_MASTER",
@@ -20,38 +29,37 @@
                 "Ram": 4,
                 "Storage": 2048
             },
-            "Tasks" : [
+            "Tasks": [
                 {
-                    "module_name" : "script",
-                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/{{ MAJOR }}/sys_prepare.sh",
-                    "tag" : "SYS-ENV-REPO-PREPARE"
-                },
-				{
-                    "module_name" : "script",
-                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/{{ MAJOR }}/install_java.sh",
-                    "tag" : "INSTALL-JAVA-18-OPENJDK"
+                    "module_name": "script",
+                    "module_args": "{{ SELF }}/bin/{{ DISTRIBUTION }}/{{ MAJOR }}/sys_prepare.sh",
+                    "tag": "SYS-ENV-REPO-PREPARE"
                 },
                 {
-                    "module_name" : "script",
-                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/{{ MAJOR }}/fixing_java_home.sh",
-                    "tag" : "JAVA-HOME-ENV-VARS"
+                    "module_name": "script",
+                    "module_args": "{{ SELF }}/bin/{{ DISTRIBUTION }}/{{ MAJOR }}/install_java.sh",
+                    "tag": "INSTALL-JAVA-18-OPENJDK"
                 },
                 {
-                    "module_name" : "script",
-                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/{{ MAJOR }}/install_cassandra.sh",
-                    "tag" : "INSTALL-CASSANDRA"
+                    "module_name": "script",
+                    "module_args": "{{ SELF }}/bin/{{ DISTRIBUTION }}/{{ MAJOR }}/fixing_java_home.sh",
+                    "tag": "JAVA-HOME-ENV-VARS"
                 },
                 {
-                    "module_name" : "script",
-                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/{{ MAJOR }}/temp_stop_fix.sh",
-                    "tag" : "TEMP-STOP-FIX"
+                    "module_name": "script",
+                    "module_args": "{{ SELF }}/bin/{{ DISTRIBUTION }}/{{ MAJOR }}/install_cassandra.sh",
+                    "tag": "INSTALL-CASSANDRA"
                 },
                 {
-                    "module_name" : "script",
-                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/{{ MAJOR }}/configure_cassandra_node.sh {{ SELF.IP }} {{ CASS_MASTER.IP }} {{ [CASS_SLAVE.IP] }}",
-                    "tag" : "CONFIGURE-AND-RESTART-MASTER"
+                    "module_name": "script",
+                    "module_args": "{{ SELF }}/bin/{{ DISTRIBUTION }}/{{ MAJOR }}/temp_stop_fix.sh",
+                    "tag": "TEMP-STOP-FIX"
+                },
+                {
+                    "module_name": "script",
+                    "module_args": "{{ SELF }}/bin/{{ DISTRIBUTION }}/{{ MAJOR }}/configure_cassandra_node.sh {{ SELF.IP }} {{ CASS_MASTER.IP }} {{ [CASS_SLAVE.IP] }}",
+                    "tag": "CONFIGURE-AND-RESTART-MASTER"
                 }
-
             ]
         },
         {
@@ -68,42 +76,43 @@
                 "Ram": 4,
                 "Storage": 4096
             },
-            "Tasks" : [
+            "Tasks": [
                 {
-                    "module_name" : "script",
-                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/{{ MAJOR }}/sys_prepare.sh",
-                    "tag" : "SYS-ENV-REPO-PREPARE"
-                },
-				{
-                    "module_name" : "script",
-                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/{{ MAJOR }}/install_java.sh",
-                    "tag" : "INSTALL-JAVA-18-OPENJDK"
+                    "module_name": "script",
+                    "module_args": "{{ SELF }}/bin/{{ DISTRIBUTION }}/{{ MAJOR }}/sys_prepare.sh",
+                    "tag": "SYS-ENV-REPO-PREPARE"
                 },
                 {
-                    "module_name" : "script",
-                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/{{ MAJOR }}/fixing_java_home.sh",
-                    "tag" : "JAVA-HOME-ENV-VARS"
+                    "module_name": "script",
+                    "module_args": "{{ SELF }}/bin/{{ DISTRIBUTION }}/{{ MAJOR }}/install_java.sh",
+                    "tag": "INSTALL-JAVA-18-OPENJDK"
                 },
                 {
-                    "module_name" : "script",
-                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/{{ MAJOR }}/install_cassandra.sh",
-                    "tag" : "INSTALL-CASSANDRA"
+                    "module_name": "script",
+                    "module_args": "{{ SELF }}/bin/{{ DISTRIBUTION }}/{{ MAJOR }}/fixing_java_home.sh",
+                    "tag": "JAVA-HOME-ENV-VARS"
                 },
                 {
-                    "module_name" : "script",
-                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/{{ MAJOR }}/temp_stop_fix.sh",
-                    "tag" : "TEMP-STOP-FIX"
+                    "module_name": "script",
+                    "module_args": "{{ SELF }}/bin/{{ DISTRIBUTION }}/{{ MAJOR }}/install_cassandra.sh",
+                    "tag": "INSTALL-CASSANDRA"
                 },
                 {
-                    "module_name" : "script",
-                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/{{ MAJOR }}/configure_cassandra_node.sh {{ SELF.IP }} {{ CASS_MASTER.IP }} {{ [CASS_SLAVE.IP] }}",
-                    "tag" : "CONFIGURE-AND-RESTART-SLAVE",
+                    "module_name": "script",
+                    "module_args": "{{ SELF }}/bin/{{ DISTRIBUTION }}/{{ MAJOR }}/temp_stop_fix.sh",
+                    "tag": "TEMP-STOP-FIX"
+                },
+                {
+                    "module_name": "script",
+                    "module_args": "{{ SELF }}/bin/{{ DISTRIBUTION }}/{{ MAJOR }}/configure_cassandra_node.sh {{ SELF.IP }} {{ CASS_MASTER.IP }} {{ [CASS_SLAVE.IP] }}",
+                    "tag": "CONFIGURE-AND-RESTART-SLAVE",
                     "dependencies": [
                         {
                             "role": "CASS_MASTER",
                             "step": 5,
                             "tag": "CONFIGURE-AND-RESTART-MASTER"
-                        }]
+                        }
+                    ]
                 }
             ]
         }
