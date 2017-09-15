@@ -98,12 +98,18 @@
             "package_id": "rancher_standalone",
             "version": 1.3,
             "location": "https://github.com/krakky/market/raw/master/packages/rancher_standalone_v1.0.pkg",
-            "sha256": "6DA9A902E2D795751325BFDF46A6E7FCC8388D426913E595F7D3488C73DC3501",
+            "sha256": "F34DF1891E39DC87F8268E4AAAF76C94A24B97B15B90F5EED244DB530989FA20",
             "heading": "Rancher | Single Node",
             "tags": [
                 "rancher",
+                "cattle",
+                "container management",
+                "docker management",
+                "docker monitoring",
+                "docker deployment",
                 "non-HA",
                 "single-node",
+                "single node",
                 "standalone"
             ],
             "description": "Rancher is an open source software platform that enables organizations to run containers in production. With Rancher, organizations no longer have to build a container services platform from scratch using a distinct set of open source technologies. Rancher supplies the entire software stack needed to manage containers in production."

@@ -3,8 +3,20 @@
     "Version": "stable | latest",
     "Title": "Rancher | Single Node",
     "Heading": "Rancher | Single Node",
-    "Description": "Only Ubuntu 14 (physcial & containers) fully tested & supported ! Go the IP of the actual node, to see <RANCHER> in action! The following credentials are valid with this package <acm : acm> !",
+    "Description": "*TESTED & SUPPORTED*: Ubuntu 14 (physcial & containers)  | *NOTE*: when choosing to install it on a particular LXC container, the container must already have <DOCKER_SUPPORT> enabled ! | After installation is done, navigate over the browser to http://<MACHINE_IP>:8080 to see <RANCHER> in action! The following credentials are valid with this package <acm:acm> !",
     "Logo": "img/logo.png",
+    "Tags": [
+        "rancher",
+        "cattle",
+        "container management",
+        "docker management",
+        "docker monitoring",
+        "docker deployment",
+        "non-HA",
+        "single-node",
+        "single node",
+        "standalone"
+    ],
     "Role": [
         {
             "Type": "RANCHER-Node",
@@ -20,36 +32,36 @@
                 "Ram": 2,
                 "Storage": 2048
             },
-            "Tasks" : [ 
-				{
-                    "module_name" : "script",
-                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/{{ MAJOR }}/1_wget_curl_prequisite.sh",
-                    "tag" : "SYS-MODULE-PREQUISITE"
-                },
-				{
-                    "module_name" : "script",
-                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/{{ MAJOR }}/2_docker_installation_instructions.sh",
-                    "tag" : "DOCKER-INSTALL-INSTRUCTIONS"
+            "Tasks": [
+                {
+                    "module_name": "script",
+                    "module_args": "{{ SELF }}/bin/{{ DISTRIBUTION }}/{{ MAJOR }}/1_wget_curl_prequisite.sh",
+                    "tag": "SYS-MODULE-PREQUISITE"
                 },
                 {
-                    "module_name" : "script",
-                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/{{ MAJOR }}/3_docker_17_03_install.sh",
-                    "tag" : "START-DOCKER-INSTALLATION"
+                    "module_name": "script",
+                    "module_args": "{{ SELF }}/bin/{{ DISTRIBUTION }}/{{ MAJOR }}/2_docker_installation_instructions.sh",
+                    "tag": "DOCKER-INSTALL-INSTRUCTIONS"
                 },
                 {
-                    "module_name" : "script",
-                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/{{ MAJOR }}/4_rancher_latest_stable_pull.sh",
-                    "tag" : "RANCHER-LATEST-STABLE-PULL"
+                    "module_name": "script",
+                    "module_args": "{{ SELF }}/bin/{{ DISTRIBUTION }}/{{ MAJOR }}/3_docker_17_03_install.sh",
+                    "tag": "START-DOCKER-INSTALLATION"
                 },
                 {
-                    "module_name" : "script",
-                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/{{ MAJOR }}/5_instantiating_rancher.sh",
-                    "tag" : "START-RANCHER-STABLE"
+                    "module_name": "script",
+                    "module_args": "{{ SELF }}/bin/{{ DISTRIBUTION }}/{{ MAJOR }}/4_rancher_latest_stable_pull.sh",
+                    "tag": "RANCHER-LATEST-STABLE-PULL"
                 },
                 {
-                    "module_name" : "script",
-                    "module_args" : "{{ SELF }}/bin/{{ DISTRIBUTION }}/{{ MAJOR }}/6_enable_local_auth.sh {{ SELF.IP }}",
-                    "tag" : "ENABLE-LOCAL-AUTH"
+                    "module_name": "script",
+                    "module_args": "{{ SELF }}/bin/{{ DISTRIBUTION }}/{{ MAJOR }}/5_instantiating_rancher.sh",
+                    "tag": "START-RANCHER-STABLE"
+                },
+                {
+                    "module_name": "script",
+                    "module_args": "{{ SELF }}/bin/{{ DISTRIBUTION }}/{{ MAJOR }}/6_enable_local_auth.sh {{ SELF.IP }}",
+                    "tag": "ENABLE-LOCAL-AUTH"
                 }
             ]
         }
