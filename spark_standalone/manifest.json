@@ -1,0 +1,78 @@
+{
+    "Name": "Spark",
+    "Version": "2.2",
+    "Title": "Spark",
+    "Heading": "Spark",
+    "Description": "Spark Standalone - installs standalone version of Spark on the specified node. After the installation process, open a browser and navigate to http://<MACHINE_IP>:8080 to see the deployed standalone Spark status !",
+    "Logo": "img/logo.png",
+    "Tags": [
+        "spark",
+        "spark-standalone",
+        "spark single",
+        "apache",
+        "cluster computing",
+        "map-reduce in-memory",
+        "DAG engine",
+        "acyclic data flow",
+        "in-memory computing"
+    ],
+    "Role": [
+        {
+            "Type": "Node",
+            "Name": "Spark Standalone",
+            "Description": "This is a node where Spark will be installed",
+            "Servers": {
+                "Min": 1,
+                "Max": 1
+            },
+            "Requirements": {
+                "Architecture": "x86_64",
+                "Cores": 1,
+                "Ram": 1024,
+                "Storage": 2048
+            },
+            "Tasks": [
+                {
+                    "module_name": "command",
+                    "module_args": "echo \"Installing Spark\"",
+                    "tag": "Info"
+                },
+                {
+                    "module_name": "script",
+                    "module_args": "{{ SELF }}/bin/{{ DISTRIBUTION }}/1-Spark.sh",
+                    "tag": "Repo-Update"
+                },
+                {
+                    "module_name": "script",
+                    "module_args": "{{ SELF }}/bin/{{ DISTRIBUTION }}/2-Spark.sh",
+                    "tag": "Install-OpenJDK"
+                },
+                {
+                    "module_name": "script",
+                    "module_args": "{{ SELF }}/bin/{{ DISTRIBUTION }}/3-Spark.sh",
+                    "tag": "Download-Spark"
+                },
+                {
+                    "module_name": "script",
+                    "module_args": "{{ SELF }}/bin/{{ DISTRIBUTION }}/4-Spark.sh",
+                    "tag": "Extract-Spark"
+                },
+                {
+                    "module_name": "script",
+                    "module_args": "{{ SELF }}/bin/{{ DISTRIBUTION }}/5-Spark.sh",
+                    "tag": "SetHost-AsIP"
+                },
+                {
+                    "module_name": "script",
+                    "module_args": "{{ SELF }}/bin/{{ DISTRIBUTION }}/6-Spark.sh",
+                    "tag": "Start-Spark"
+                },
+                {
+                    "module_name": "command",
+                    "module_args": "echo \"Spark installation complete\"",
+                    "tag": "Redis-Installed"
+                }
+            ]
+        }
+    ]
+}

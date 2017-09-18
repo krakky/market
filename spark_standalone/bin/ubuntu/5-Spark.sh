@@ -1,0 +1,1 @@
+cd spark && sed -i 's/SPARK_MASTER_HOST="`hostname -f`"/SPARK_MASTER_HOST="`hostname -I`"/g' sbin/start-master.sh
