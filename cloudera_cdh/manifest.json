@@ -4,7 +4,7 @@
     "Title": "Cloudera CDH | 5.12",
     "Heading": "Cloudera CDH | 5.12",
     "Description": "*SUPPORTED OS:* CentOS 6, CentOS 7, Ubuntu 14(trusty) & Ubuntu 16(xenial) | This app-bundle will install Cloudera Manager on the <MANAGEMENT_NODE> and its agents on the specified nodes <WORKER_NODE>s, start up your enterprise edition Cloudera trial, sets up an entire cluster <ACM Cluster> consisting of your provisioned <WORKER_NODE>s appliances and then autmatically installs the latest CDH 5 parcel on the <MANAGEMENT_NODE>, following up with a distribution of the CDH 5 parcel via <P2P> directly to each of the <WORKER_NODES> within the pre-defined cluster ! To see the activated parcels across the cluster, navigate with your browser to http://<MACHINE_IP>:7180 and login with the credentials <acm:SCALE42secretly> !",
-    "Logo": "img/logo.jpg",
+    "Logo": "img/logo.png",
     "Tags": [
         "Cloudera",
         "CDH",

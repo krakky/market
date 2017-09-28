@@ -2,7 +2,7 @@
 CDH is Cloudera's 100% open source platform distribution, including Apache Hadoop and built specifically to meet enterprise demands. CDH delivers everything you need for enterprise use right out of the box. By integrating Hadoop with more than a dozen other critical open source projects, Cloudera has created a functionally advanced system that helps you perform end-to-end Big Data workflows.
 
 # SHA256 | (.pkg) integrity check
-**EB2EA951CA1DB75DA71D9F28207694A8367248C4F176E428CF4645AED880C9E3**
+**C6441CB5394E60F44B3CDE702FEDCC64502AF7BEED7DC01EB52BA2B2F8F17BC8**
 
 # License | Apache License 2.0
 Refer to the [LICENSE](https://github.com/krakky/market/blob/master/cloudera_cdh/LICENSE) file for more info !

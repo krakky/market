@@ -74,7 +74,7 @@
             "package_id": "cloudera_cdh",
             "version": 5.12,
             "location": "https://github.com/krakky/market/raw/master/packages/cloudera_cdh_v2.0.pkg",
-            "sha256": "EB2EA951CA1DB75DA71D9F28207694A8367248C4F176E428CF4645AED880C9E3",
+            "sha256": "C6441CB5394E60F44B3CDE702FEDCC64502AF7BEED7DC01EB52BA2B2F8F17BC8",
             "heading": "Cloudera CDH | 5.12",
             "tags": [
                 "Cloudera",
