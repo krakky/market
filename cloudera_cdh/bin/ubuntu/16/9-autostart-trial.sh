@@ -1,0 +1,2 @@
+echo "Auto-starting TRIAL for <CLOUDERA> Enterprise Data Hub Edition valid for the next 60 days !"
+curl -X POST -u 'acm:SCALE42secretly' http://127.0.0.1:7180/api/v17/cm/trial/begin -H 'accept: application/json' -H 'Content-Type: application/json' 
